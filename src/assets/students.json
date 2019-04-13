@@ -1,0 +1,50 @@
+[{
+  "id": 1,
+  "fatherName": "Vinod",
+  "motherName": "Simmi",
+  "name": "Ayush Jain",
+  "category":"International",
+  "dateOfBirth":"2019-04-10",
+  "lastMarks": 99,
+  "documents": [true, true, true, true, true, true]
+},
+{
+    "id": 2,
+    "fatherName": "Vidut",
+    "motherName": "Vimmi",
+    "name": "Ayush Sinha",
+    "category":"International",
+    "dateOfBirth":"2018-04-10",
+    "lastMarks": 99,
+    "documents": [true, true, true, true, true, true]
+  },
+  {
+    "id": 3,
+    "fatherName": "Vineet",
+    "motherName": "Nimmi",
+    "name": "Ayush Ginha",
+    "category":"International",
+    "dateOfBirth":"2017-04-10",
+    "lastMarks": 93,
+    "documents": [true, true, true, true, true, true]
+  },
+  {
+    "id": 4,
+    "fatherName": "Sumeet",
+    "motherName": "Vimmi",
+    "name": "Vikas Sinha",
+    "category":"International",
+    "dateOfBirth":"2018-04-10",
+    "lastMarks": 99,
+    "documents": [true, true, true, true, true, true]
+  },
+  {
+    "id": 5,
+    "fatherName": "Vidut",
+    "motherName": "Vimmi",
+    "name": "Deepak Kumar",
+    "category":"International",
+    "dateOfBirth":"2018-01-10",
+    "lastMarks": 91,
+    "documents": [true, true, true, true, true, true]
+  }]

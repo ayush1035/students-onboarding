@@ -1,0 +1,107 @@
+<div class=" page-wrapper p-b-50">
+  <div class="wrapper wrapper--w900">
+    <div class="card1 card-6">
+      <div class="card-heading">
+        <h2 class="title">Onboarding Form</h2>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="onboardingForm">
+          <div class="form-row">
+            <div class="name">Student Name</div>
+            <div class="value">
+              <input class="input--style-6" type="text" name="name" [class.is-invalid]="name.invalid && name.touched"
+                formControlName="name">
+            </div>
+            <div *ngIf="name.invalid && name.touched">
+              <small class="text-danger" *ngIf="name.errors?.required">Name is required</small>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="name">Category</div>
+            <div class="value">
+              <select id="category" (input)="addDocuments()" formControlName="category">
+                <option *ngFor="let c of categories" [ngValue]="c">{{ c }}</option>
+              </select>
+            </div>
+
+            <div *ngIf="category.invalid && category.touched">
+              <small class="text-danger" *ngIf="category.errors?.required">Category is required</small>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="name">Father's Name</div>
+            <div class="value">
+              <input class="input--style-6" type="text" name="fatherName"
+                [class.is-invalid]="fatherName.invalid && fatherName.touched" formControlName="fatherName">
+            </div>
+            <div *ngIf="fatherName.invalid && fatherName.touched">
+              <small class="text-danger" *ngIf="fatherName.errors?.required">Father's Name is required</small>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="name">Mother's Name</div>
+            <div class="value">
+              <input class="input--style-6" type="text" name="motherName"
+                [class.is-invalid]="motherName.invalid && motherName.touched" formControlName="motherName">
+            </div>
+            <div *ngIf="motherName.invalid && motherName.touched">
+              <small class="text-danger" *ngIf="motherName.errors?.required">Mother's Name is required</small>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="name">Date Of Birth</div>
+            <div class="value">
+              <input class="input--style-6" type="date" name="dateOfBirth"
+                [class.is-invalid]="dateOfBirth.invalid && dateOfBirth.touched" formControlName="dateOfBirth">
+            </div>
+            <div *ngIf="dateOfBirth.invalid && dateOfBirth.touched">
+              <small class="text-danger" *ngIf="dateOfBirth.errors?.required">Date Of Birth is required</small>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="name">Last Year Marks %</div>
+            <div class="value">
+              <input class="input--style-6" type="number" name="lastMarks"
+                [class.is-invalid]="lastMarks.invalid && lastMarks.touched" formControlName="lastMarks">
+            </div>
+            <div *ngIf="lastMarks.invalid && lastMarks.touched">
+              <small class="text-danger" *ngIf="lastMarks.errors?.required">Marks are required</small>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-3">
+              <div class="name">Documents</div>
+            </div>
+            <div class="col">
+              <div class="row">
+                <div class="col-md-3 document "
+                  *ngFor="let docs of onboardingForm.controls.documents.controls; let i = index"
+                  formArrayName="documents">
+                  <label>
+                    <input type="checkbox" [formControlName]="i">
+                    {{documents[i].name}}<span class="redText"
+                      *ngIf="onboardingForm.controls.category.value === 'Domestic' && (i == 0 || i == 1 || i == 2 || i == 5)">*</span>
+                    <span class="redText" *ngIf="onboardingForm.controls.category.value === 'International'">*</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="redTextDiv" *ngIf="onboardingForm.errors?.misMatch">Please select required documents</div>
+          </div>
+          
+        </form>
+      </div>
+      <div class="card-footer">
+        <button class="btn btn--radius-2 btn--blue-2" (click)="onSubmit()" [disabled]="!onboardingForm.valid"
+          type="submit">Submit
+          Info</button>
+      </div>
+    </div>
+  </div>
+</div>
+<nav class="navbar navbar-dark bg-dark mt-5 pt-3 pb-3">
+  <div class="navbar-expand m-auto navbar-text">
+    Made with <i class="fa fa-heart"></i> by <a href="https://twitter.com/beeman_nl">Ayush</a>
+  </div>
+</nav>
