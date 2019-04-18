@@ -24,7 +24,7 @@ export class OnboardingService {
     }
     else
     {
-      const url = '/assets/students.json';// url of the json
+      const url = 'students-onboarding/assets/students.json';// url of the json
     this.http.get<Student[]>(url).subscribe(data => {
       localStorage.setItem('students',JSON.stringify(data));// setting data in local storage
       this.students.next(data);
