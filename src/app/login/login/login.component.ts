@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from '../shared/user';
 import {LoginService} from '../shared/login.service';
-import {Router} from "@angular/router"
+import {Router} from "@angular/router";
+import {SharedService} from '../../core/services/shared.service'
 import * as constants from '../shared/constants'
 
 
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
   userModel = new User('',''); // at first username and password will be empty.
   errorMessage = '';
 
-  constructor(private loginService: LoginService,private router: Router) { } // initializing the Login service and router
+  constructor(private loginService: LoginService,private router: Router,private sharedService:SharedService) { } // initializing the Login service and router
 
   ngOnInit() {
   }
@@ -27,6 +28,7 @@ export class LoginComponent implements OnInit {
   onSubmit(event){
     if(this.loginService.verifyUser(this.userModel)){
       //if the credentials match we will route to landing page
+      this.sharedService.login();
       this.router.navigate(['/student-onboard'])
     }
     else{

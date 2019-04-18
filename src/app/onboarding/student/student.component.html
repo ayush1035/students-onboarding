@@ -19,7 +19,8 @@
           <div class="form-row">
             <div class="name">Category</div>
             <div class="value">
-              <select id="category" (input)="addDocuments()" formControlName="category">
+              <select id="category" class="input--style-6" (input)="addDocuments()" formControlName="category" [(ngModel)]="select">
+                  <option [ngValue]="undefined" disabled>Select Category</option>
                 <option *ngFor="let c of categories" [ngValue]="c">{{ c }}</option>
               </select>
             </div>
@@ -87,21 +88,21 @@
               </div>
             </div>
             <br>
-            <div class="redTextDiv" *ngIf="onboardingForm.errors?.misMatch">Please select required documents</div>
+            <div class="redTextDiv" *ngIf="onboardingForm.errors?.misMatch">Please upload documents marked as *</div>
           </div>
           
         </form>
       </div>
       <div class="card-footer">
-        <button class="btn btn--radius-2 btn--blue-2" (click)="onSubmit()" [disabled]="!onboardingForm.valid"
+        <button class="btn btn-primary" (click)="onSubmit()" [disabled]="!onboardingForm.valid||disableFields"
           type="submit">Submit
-          Info</button>
+          </button>
       </div>
     </div>
   </div>
 </div>
-<nav class="navbar navbar-dark bg-dark mt-5 pt-3 pb-3">
+<nav class="navbar navbar-dark bg-primary mt-5 pt-3 pb-3">
   <div class="navbar-expand m-auto navbar-text">
-    Made with <i class="fa fa-heart"></i> by <a href="https://twitter.com/beeman_nl">Ayush</a>
+      Made by <a href="https://github.com/ayush1035">Ayush 3145844</a>&nbsp; <i class="fa fa-copyright"></i>
   </div>
 </nav>

@@ -6,12 +6,14 @@ import { OnboardingService } from "../shared/onboarding.service";
 import * as constants from "../shared/constants";
 import { Router } from "@angular/router";
 import { DocumentValidator } from "../shared/document.validator";
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: "app-student",
   templateUrl: "./student.component.html",
   styleUrls: ["./student.component.css"]
 })
+
 export class StudentComponent implements OnInit {
   documents = [
     { name: constants.DOCUMENT_DOMICILE },
@@ -21,9 +23,17 @@ export class StudentComponent implements OnInit {
     { name: constants.DOCUMENT_PASSPORT },
     { name: constants.DOCUMENT_DECLARATION }
   ];
+  editableStudent = new Student(0, "", "", "", "", "", 0, [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ])
   categories = [constants.CATEGORY_DOMESTIC, constants.CATEGORY_INTERNTIONAL];
   onboardingForm: FormGroup;
-  student = new Student(0, "", "", "", "", new Date(), 0, [
+  student = new Student(0, "", "", "", "", "", 0, [
     false,
     false,
     false,
@@ -31,14 +41,17 @@ export class StudentComponent implements OnInit {
     false,
     false
   ]);
+  disableFields = false;
 
   constructor(
     private fb: FormBuilder,
     public onboardingService: OnboardingService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute,
   ) {}
 
   ngOnInit() {
+    //initializing the form
     this.onboardingForm = this.fb.group(
       {
         name: [this.student.name, [Validators.required]],
@@ -49,9 +62,21 @@ export class StudentComponent implements OnInit {
         lastMarks: [this.student.lastMarks, [Validators.required]],
         documents: new FormArray([])
       },
-      { validator: DocumentValidator }
+      { validator: DocumentValidator }// custom validator
     );
-    // this.addDocuments();
+
+    // to get the value from params and set their value in the form
+    this.route.paramMap.subscribe(params=>{
+      const id  = +params.get('id');
+      if(id){//either edit or view
+        if(this.router.url.includes('/view/'))
+        {
+          this.disableFields = true;
+        }
+        this.editableStudent = this.onboardingService.getStudent(id); // getting student with id in url
+        this.setEditableValues(this.editableStudent);// setting value in form
+      }
+    })
   }
 
   /**
@@ -120,8 +145,70 @@ export class StudentComponent implements OnInit {
    */
 
   onSubmit(event) {
-    console.log(this.onboardingForm.value);
-    this.onboardingService.addStudent(this.onboardingForm.value);
+    if(this.editableStudent.id!==0)
+    {
+      this.onboardingForm.value.id = this.editableStudent.id;
+      this.onboardingService.updateStudent(this.onboardingForm.value)// for updating user
+    }
+    else
+    {
+      this.onboardingService.addStudent(this.onboardingForm.value);//for creating user
+    }
     this.router.navigate(["/student-onboard", "list"]);
+  }
+
+  /**
+   * 
+   * @param student Student type of instance
+   * Function is used to set the editable fields in the form on change of url to edit form
+   */
+  setEditableValues(student:Student){
+    this.onboardingForm.patchValue({
+      name: student.name,
+        category:  student.category,
+        fatherName:  student.fatherName,
+        motherName:  student.motherName,
+        dateOfBirth: student.dateOfBirth,
+        lastMarks:  student.lastMarks,
+    });
+    this.category.markAsDirty();// to make the custom validator active
+    this.onboardingForm.setControl('documents', this.setDocs(student.documents))// to set the form array
+    if(this.disableFields) // in case of view fields
+    {
+      this.makingFieldsDisable(); // making fiels disable
+    }
+  }
+
+  /**
+   * 
+   * @param docs docs array which needs to be populated to form array
+   * Function used to populate form array
+   */
+  setDocs(docs):FormArray{
+    const formArray = new FormArray([]); 
+    formArray.controls = [];
+    docs.map((o, i) => {
+      const control = new FormControl(o); // if first item set to true, else false
+      (formArray as FormArray).push(control);//filling the form array with form controls
+    });
+    return formArray
+  }
+
+  /**
+   * making the fields disabled for view route
+   */
+  makingFieldsDisable(){
+    this.onboardingForm.get('name').disable();
+    this.onboardingForm.get('fatherName').disable();
+    this.onboardingForm.get('motherName').disable();
+    this.onboardingForm.get('category').disable();
+    this.onboardingForm.get('dateOfBirth').disable();
+    this.onboardingForm.get('lastMarks').disable();
+    (<FormArray>this.onboardingForm.get('documents'))
+      .controls
+      .forEach(control => {
+        control.disable();
+      })
+
   }
 }

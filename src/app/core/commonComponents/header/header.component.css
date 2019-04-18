@@ -1,0 +1,14 @@
+.nameSpan{
+        /* margin-left: 2%; */
+        display: inline-block;
+        /* position: absolute; */
+        /* right: 103px; */
+        width: 85px;
+        margin-top: 4%;
+        color: white;
+        font-family: inherit
+}
+
+.wrapper{
+    font-size: 17px
+}

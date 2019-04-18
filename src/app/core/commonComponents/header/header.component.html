@@ -1,22 +1,20 @@
-<nav class="navbar navbar-dark bg-dark">
-  <a class="navbar-brand" href="/">Student Onboarding</a>
-  <div class="navbar-expand mr-auto">
-    <div class="navbar-nav">
-      <a routerLink="/student-onboard" routerLinkActive="active" class="nav-item nav-link" >OnBoarding</a>
-      <a routerLink="/student-onboard/list" routerLinkActive="active" class="nav-item nav-link">Students List</a>
-    </div>
-  </div>
-  <div class="navbar-expand ml-auto navbar-nav">
-    <div class="navbar-nav">
-      <a  class="nav-item nav-link" href="https://github.com/beeman" target="_blank">
-        <i class="fa fa-github"></i>
-      </a>
-      <a class="nav-item nav-link" href="https://twitter.com/beeman_nl" target="_blank">
-        <i class="fa fa-twitter"></i>
-      </a>
-      <a class="nav-item nav-link" href="https://medium.com/@beeman" target="_blank">
-        <i class="fa fa-medium"></i>
-      </a>
-    </div>
-  </div>
-</nav>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary" expand="lg">
+      <div class="container wrapper">
+        <a class="navbar-brand" href="/">Student Onboarding</a>
+        <div class="navbar-expand mr-auto">
+          <div class="navbar-nav">
+            <a routerLink="/student-onboard" [routerLinkActive]="['active']" *ngIf="service.isLoggedIn.value===true"
+              class="nav-item nav-link">OnBoarding</a>
+            <a routerLink="/student-onboard/list" [routerLinkActive]="['active']"
+              *ngIf="service.isLoggedIn.value===true" class="nav-item nav-link">Students List</a>
+          </div>
+        </div>
+        <div class="navbar-expand ml-auto navbar-nav">
+          <div class="navbar-nav">
+            <div class="nameSpan" *ngIf="service.isLoggedIn.value===true">Hi {{username}}</div>
+            <button *ngIf="service.isLoggedIn.value===true" class="btn btn-dark" (click)="logout()">Logout</button>
+          </div>
+        </div>
+      </div>
+
+    </nav>

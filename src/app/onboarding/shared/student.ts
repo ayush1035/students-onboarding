@@ -5,7 +5,7 @@ export class Student {
     public category: string,
     public fatherName: string,
     public motherName: string,
-    public dateOfBirth: Date,
+    public dateOfBirth: string,
     public lastMarks: number,
     public documents: [false, false, false, false, false, false]
   ) {}

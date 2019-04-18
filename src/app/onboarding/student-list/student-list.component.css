@@ -1,0 +1,132 @@
+.gridCol{
+    margin-bottom: 3%;
+}
+
+.gridRow{
+    margin-top: 3%;
+}
+.label{
+    font-weight: bold
+}
+
+.details{
+    margin-bottom: 5%;
+}
+
+.imgCard{
+    padding: 3%;
+}
+
+.categoryDomestic{
+    color: steelblue;
+    font-family: cursive;
+}
+.categoryInternational{
+    color: indianred;
+    font-family: cursive;
+}
+.age{
+    font-size: 14px;
+    color: darkred;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+    border: 0 !important;
+    background: lightgray;
+    background-image: none;
+  }
+  /* Custom Select */
+  .select {
+    position: relative;
+    display: block;
+    width: 20em;
+    height: 3em;
+    line-height: 3;
+    background: #d3d3d3;
+    overflow: hidden;
+    border-radius: .25em;
+    margin-top: 4%;
+    margin-bottom:7%;
+  }
+  select {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0 0 0 .5em;
+    color: black;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 7%;
+
+  }
+  select::-ms-expand {
+    display: none;
+  }
+  /* Arrow */
+  .select::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0 1em;
+    background: #d3d3d3;
+    pointer-events: none;
+  }
+  /* Transition */
+  .select:hover::after {
+    color: #f39c12;
+  }
+  .select::after {
+    -webkit-transition: .25s all ease;
+    -o-transition: .25s all ease;
+    transition: .25s all ease;
+  }
+
+  .handlerButton{
+      font-size: 13px
+  }
+
+.form-group{
+    margin-top: 3%;
+}
+  
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 3.375rem;
+    height: 3.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+.has-search{
+    text-align: center;
+}
+
+.heading{
+    text-align: center;
+    margin-top: 2%;
+    font-family: sans-serif
+}
+
+.list-header{
+    background-color: #e2e2e2
+}
+
+.list-body{
+    background-color: #fcfcfc;
+    border: 1px solid lightgray;
+}

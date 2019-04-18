@@ -11,9 +11,8 @@ export function DocumentValidator(
   control: AbstractControl
 ): { [key: string]: boolean } | null {
   const category = control.get("category");
-  const documents = control.value.documents;
-  debugger;
-  if (category.pristine || control.get("documents").pristine) {// if they are not made dirty yet then no need to show error as of now
+      const documents = control.value.documents;
+  if (category.pristine) {// if they are not made dirty yet then no need to show error as of now
     return null;
   }
   if (category.value === constants.CATEGORY_INTERNTIONAL) { // if category is International

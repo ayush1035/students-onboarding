@@ -75,7 +75,7 @@
     -moz-box-align: start;
     -ms-flex-align: start;
     align-items: flex-start;
-    padding: 24px 55px;
+    padding: 16px 55px;
     border-bottom: 1px solid #e5e5e5;
   }
   
@@ -84,7 +84,7 @@
     color: #333;
     font-size: 15px;
     font-weight: 700;
-    margin-top: 11px;
+    margin-top: 7px;
   }
   
   .form-row .value {
@@ -178,7 +178,6 @@
   
   button {
     outline: none;
-    background: none;
     border: none;
   }
   
@@ -187,15 +186,10 @@
      ========================================================================== */
   .page-wrapper {
     min-height: 100vh;
-    padding-top: 40px;
+    padding-top: 30px;
   }
   
-  body {
-    font-family: "Open Sans", "Arial", "Helvetica Neue", sans-serif;
-    font-weight: 400;
-    font-size: 14px;
-  }
-  
+
   h1, h2, h3, h4, h5, h6 {
     font-weight: 400;
   }
@@ -492,12 +486,12 @@
   .input--style-6,
   .textarea--style-6 {
     background: transparent;
-    line-height: 38px;
-    border: 1px solid #cccccc;
+    line-height: 28px;
+    border: 1.5px solid #cccccc;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
-    color: #666;
+    color: black;
     font-size: 15px;
     -webkit-transition: all 0.4s ease;
     -o-transition: all 0.4s ease;
@@ -559,7 +553,7 @@
   .label--desc {
     font-size: 13px;
     color: #999;
-    margin-top: 10px;
+    margin-top: 7px;
   }
   
   @media (max-width: 767px) {
@@ -633,11 +627,12 @@
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
-    background: #fff;
+    background:#e2e2e2;
   }
   
   .card-6 {
-    background: transparent;
+    border: 1px solid lightgray;
+
   }
   
   .card-6 .card-heading {
@@ -647,11 +642,10 @@
   }
   
   .card-6 .card-body {
-    background: #fff;
+    background: #fcfcfc;
     position: relative;
     border: 1px solid #e5e5e5;
     border-bottom: none;
-    padding: 30px 0;
     padding-bottom: 0;
     -webkit-border-top-left-radius: 3px;
     -moz-border-radius-topleft: 3px;
@@ -676,7 +670,7 @@
   }
   
   .card-6 .card-footer {
-    background: #fff;
+    background:  #fcfcfc;
     border: 1px solid #e5e5e5;
     border-top: none;
     -webkit-border-bottom-left-radius: 3px;
@@ -685,7 +679,7 @@
     -webkit-border-bottom-right-radius: 3px;
     -moz-border-radius-bottomright: 3px;
     border-bottom-right-radius: 3px;
-    padding: 50px 55px;
+    padding: 15px 55px;
   }
   
   @media (max-width: 767px) {
