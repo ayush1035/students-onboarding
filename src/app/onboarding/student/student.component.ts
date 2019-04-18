@@ -15,6 +15,7 @@ import {ActivatedRoute} from '@angular/router';
 })
 
 export class StudentComponent implements OnInit {
+  select = 'Select Category';
   documents = [
     { name: constants.DOCUMENT_DOMICILE },
     { name: constants.DOCUMENT_BIRTH_CERTIFICTE },
@@ -31,7 +32,7 @@ export class StudentComponent implements OnInit {
     false,
     false
   ])
-  categories = [constants.CATEGORY_DOMESTIC, constants.CATEGORY_INTERNTIONAL];
+  categories = [constants.CATEGORY_DOMESTIC, constants.CATEGORY_INTERNTIONAL] ;
   onboardingForm: FormGroup;
   student = new Student(0, "", "", "", "", "", 0, [
     false,
