@@ -17940,7 +17940,7 @@ var OnboardingService = /** @class */ (function () {
             this.students.next(students);
         }
         else {
-            var url = 'students-onboarding/assets/students.json'; // url of the json
+            var url = '/students-onboarding/assets/students.json'; // url of the json
             this.http.get(url).subscribe(function (data) {
                 localStorage.setItem('students', JSON.stringify(data)); // setting data in local storage
                 _this.students.next(data);
