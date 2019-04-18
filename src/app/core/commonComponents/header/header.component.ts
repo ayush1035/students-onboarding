@@ -11,7 +11,7 @@ import { Router } from "@angular/router";
 export class HeaderComponent implements OnInit {
   username = 'Ayush';
 
-  constructor(private service:SharedService,private router:Router) { }
+  constructor(public service:SharedService,private router:Router) { }
 
   ngOnInit() {
   }

@@ -9,7 +9,7 @@
           alt="">
           <h3 style="text-align: center">Please Sign In</h3>
           <!-- <img src="assets/images/image-1.png" alt="" class="image-1"> -->
-        <form #loginform="ngForm" class="form-signin" (ngSubmit)="onSubmit()">
+        <form #loginform="ngForm" class="form-signin" (ngSubmit)="onSubmit($event)">
           <input type="text" class="form-control"  name="username" placeholder="Username" #username="ngModel"
             [class.is-invalid]="username.invalid && username.touched" [(ngModel)]="userModel.username"
             required >
