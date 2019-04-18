@@ -17940,7 +17940,7 @@ var OnboardingService = /** @class */ (function () {
             this.students.next(students);
         }
         else {
-            var url = '/assets/students.json'; // url of the json
+            var url = 'students-onboarding/assets/students.json'; // url of the json
             this.http.get(url).subscribe(function (data) {
                 localStorage.setItem('students', JSON.stringify(data)); // setting data in local storage
                 _this.students.next(data);
@@ -17954,7 +17954,7 @@ var OnboardingService = /** @class */ (function () {
      */
     OnboardingService.prototype.addStudent = function (student) {
         var currentData = this.students.getValue();
-        var id = currentData[currentData.length - 1].id; // getting the index of last value added
+        var id = new Date().getMilliseconds(); // getting the index of last value added
         student.id = id + 1;
         var updatedData = currentData.concat([student]); // updating the students array as behaviour subject
         localStorage.setItem('students', JSON.stringify(updatedData));
