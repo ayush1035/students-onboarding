@@ -94,7 +94,7 @@
         </form>
       </div>
       <div class="card-footer">
-        <button class="btn btn-primary" (click)="onSubmit()" [disabled]="!onboardingForm.valid||disableFields"
+        <button class="btn btn-primary" (click)="onSubmit($event)" [disabled]="!onboardingForm.valid||disableFields"
           type="submit">Submit
           </button>
       </div>
