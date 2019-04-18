@@ -24,7 +24,7 @@ export class OnboardingService {
     }
     else
     {
-      const url = '/assets/students.json';// url of the json
+      const url = 'students-onboarding/assets/students.json';// url of the json
     this.http.get<Student[]>(url).subscribe(data => {
       localStorage.setItem('students',JSON.stringify(data));// setting data in local storage
       this.students.next(data);
@@ -40,7 +40,7 @@ export class OnboardingService {
    */
   addStudent(student:Student) {
     const currentData = this.students.getValue();
-    let id = currentData[currentData.length-1].id // getting the index of last value added
+    let id = new Date().getMilliseconds(); // getting the index of last value added
     student.id = id+1;
     const updatedData = [...currentData, student]; // updating the students array as behaviour subject
     localStorage.setItem('students',JSON.stringify(updatedData));
