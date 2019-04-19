@@ -19,8 +19,7 @@
           <div class="form-row">
             <div class="name">Category</div>
             <div class="value">
-              <select id="category" class="input--style-6" (input)="addDocuments()" formControlName="category" [(ngModel)]="select">
-                  <option [ngValue]="undefined" disabled>Select Category</option>
+              <select id="category" class="input--style-6" (input)="addDocuments()" formControlName="category">
                 <option *ngFor="let c of categories" [ngValue]="c">{{ c }}</option>
               </select>
             </div>
