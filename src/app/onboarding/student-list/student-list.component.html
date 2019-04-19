@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-3">
         <div class="form-group">
-            <select  name="slct" id="slct"  [(ngModel)] = "selectedFilter" class="form-control-lg" >
+            <select  name="slct" id="slct"  [(ngModel)] = "selectedFilter" class="selectType browser-default custom-select" >
                 <option *ngFor="let filter of filters" [ngValue]="filter">{{filter}}</option>
             </select>
           </div>
