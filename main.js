@@ -65,7 +65,7 @@ var routes = [
         loadChildren: './login/login.module#LoginModule'
     },
     {
-        path: '',
+        path: '**',
         redirectTo: 'login',
         pathMatch: 'full'
     }
@@ -391,7 +391,7 @@ module.exports = ".nameSpan{\r\n        /* margin-left: 2%; */\r\n        displa
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "    <nav class=\"navbar navbar-expand-lg navbar-dark bg-primary\" expand=\"lg\">\n      <div class=\"container wrapper\">\n        <a class=\"navbar-brand\" href=\"/\"> <img src=\"assets/images/student2.png\" alt=\"\" width=\"40px\" height=\"40px\">&nbsp; Student Onboarding</a>\n        <div class=\"navbar-expand mr-auto\">\n          <div class=\"navbar-nav\">\n            <a routerLink=\"/student-onboard\" [routerLinkActive]=\"['active']\" *ngIf=\"service.isLoggedIn.value===true\"\n              class=\"nav-item nav-link\">OnBoarding</a>\n            <a routerLink=\"/student-onboard/list\" [routerLinkActive]=\"['active']\"\n              *ngIf=\"service.isLoggedIn.value===true\" class=\"nav-item nav-link\">Students List</a>\n          </div>\n        </div>\n        <div class=\"navbar-expand ml-auto navbar-nav\">\n          <div class=\"navbar-nav\">\n            <div class=\"nameSpan\" *ngIf=\"service.isLoggedIn.value===true\">Hi {{username}}</div>\n            <button *ngIf=\"service.isLoggedIn.value===true\" class=\"btn btn-dark\" (click)=\"logout()\">Logout</button>\n          </div>\n        </div>\n      </div>\n\n    </nav>\n"
+module.exports = "    <nav class=\"navbar navbar-expand-lg navbar-dark bg-primary\" expand=\"lg\">\n      <div class=\"container wrapper\">\n        <a class=\"navbar-brand\" href=\"/\"> <img src=\"assets/images/student2.png\" alt=\"\" width=\"40px\" height=\"40px\">&nbsp;\n          Student Onboarding</a>\n        <div class=\"navbar-expand mr-auto\">\n          <div class=\"navbar-nav\">\n            <a routerLink=\"/student-onboard/create\" [routerLinkActive]=\"['active']\"\n              *ngIf=\"service.isLoggedIn.value===true\" class=\"nav-item nav-link\">OnBoarding</a>\n            <a routerLink=\"/student-onboard/list\" [routerLinkActive]=\"['active']\"\n              *ngIf=\"service.isLoggedIn.value===true\" class=\"nav-item nav-link\">Students List</a>\n          </div>\n        </div>\n        <div class=\"navbar-expand ml-auto navbar-nav\">\n          <div class=\"navbar-nav\">\n            <div class=\"nameSpan\" *ngIf=\"service.isLoggedIn.value===true\">Hi {{username}}</div>\n            <button *ngIf=\"service.isLoggedIn.value===true\" class=\"btn btn-dark mt-1\" (click)=\"logout()\">Logout</button>\n          </div>\n        </div>\n      </div>\n    </nav>\n"
 
 /***/ }),
 
