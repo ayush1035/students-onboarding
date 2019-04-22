@@ -17,7 +17,7 @@ export class AuthGuardForLoginService implements CanActivate{
     }
     else
     {
-      this._router.navigate(['/student-onboard']); // redirect to login page
+      this._router.navigate(['/student-onboard','create']); // redirect to login page
     }
   }
 

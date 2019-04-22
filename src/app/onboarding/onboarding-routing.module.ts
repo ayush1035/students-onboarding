@@ -2,12 +2,15 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { StudentComponent } from './student/student.component';
 import { StudentListComponent } from './student-list/student-list.component';
-import {AuthGuardService} from '../core/guards/auth-guard.service'
+import {AuthGuardService} from '../core/guards/auth-guard.service';
+import {CanDeactivateGuard} from '../core/guards/can-deactivate-guard';
+
 const routes: Routes = [
   {
-    path: '',
+    path: 'create',
     component: StudentComponent,
-    canActivate:[AuthGuardService]
+    canActivate:[AuthGuardService],
+    canDeactivate:[CanDeactivateGuard]
   },
   {
     path: 'list',
@@ -15,7 +18,7 @@ const routes: Routes = [
     canActivate:[AuthGuardService]
   },
   {
-    path: ':id',
+    path: 'edit/:id',
     component: StudentComponent,
     canActivate:[AuthGuardService]
   },

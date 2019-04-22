@@ -60,7 +60,7 @@ export class StudentComponent implements OnInit {
         fatherName: [this.student.fatherName, [Validators.required]],
         motherName: [this.student.motherName, [Validators.required]],
         dateOfBirth: [this.student.dateOfBirth, [Validators.required]],
-        lastMarks: [this.student.lastMarks, [Validators.required]],
+        lastMarks: [this.student.lastMarks, [Validators.required,Validators.min(0), Validators.max(100)]],
         documents: new FormArray([])
       },
       { validator: DocumentValidator }// custom validator
@@ -211,5 +211,15 @@ export class StudentComponent implements OnInit {
         control.disable();
       })
 
+  }
+
+  /**
+   * function to check whether we want to discard our changes
+   */
+  canDeactivate(){
+    if(this.onboardingForm.dirty && this.onboardingForm.invalid){
+      return window.confirm("Do you want to discard the changes?")
+    }
+    return true;
   }
 }

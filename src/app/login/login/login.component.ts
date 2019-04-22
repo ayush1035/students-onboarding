@@ -29,12 +29,24 @@ export class LoginComponent implements OnInit {
     if(this.loginService.verifyUser(this.userModel)){
       //if the credentials match we will route to landing page
       this.sharedService.login();
-      this.router.navigate(['/student-onboard'])
+      this.router.navigate(['/student-onboard','create'])
     }
     else{
       //if the credentials do not match we will dispay an error message on the screen
       this.errorMessage =constants.ERROR_MESSAGE ;
     }
+  }
+
+  reset(){
+    if(this.userModel.username!=='')
+    {
+      this.userModel.username = ''
+    }
+    if(this.userModel.password!=='')
+    {
+      this.userModel.password = ''
+    }
+
   }
 
 

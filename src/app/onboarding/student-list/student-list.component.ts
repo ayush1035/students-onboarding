@@ -27,7 +27,7 @@ export class StudentListComponent implements OnInit {
    * function made to handle the edit button functionality
    */
   editHandler(id: number) {
-    this.router.navigate(["/student-onboard", id]);
+    this.router.navigate(["/student-onboard","edit", id]);
   }
 
   /**

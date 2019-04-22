@@ -1,10 +1,11 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary" expand="lg">
       <div class="container wrapper">
-        <a class="navbar-brand" href="/"> <img src="assets/images/student2.png" alt="" width="40px" height="40px">&nbsp; Student Onboarding</a>
+        <a class="navbar-brand" href="/"> <img src="assets/images/student2.png" alt="" width="40px" height="40px">&nbsp;
+          Student Onboarding</a>
         <div class="navbar-expand mr-auto">
           <div class="navbar-nav">
-            <a routerLink="/student-onboard" [routerLinkActive]="['active']" *ngIf="service.isLoggedIn.value===true"
-              class="nav-item nav-link">OnBoarding</a>
+            <a routerLink="/student-onboard/create" [routerLinkActive]="['active']"
+              *ngIf="service.isLoggedIn.value===true" class="nav-item nav-link">OnBoarding</a>
             <a routerLink="/student-onboard/list" [routerLinkActive]="['active']"
               *ngIf="service.isLoggedIn.value===true" class="nav-item nav-link">Students List</a>
           </div>
@@ -12,9 +13,8 @@
         <div class="navbar-expand ml-auto navbar-nav">
           <div class="navbar-nav">
             <div class="nameSpan" *ngIf="service.isLoggedIn.value===true">Hi {{username}}</div>
-            <button *ngIf="service.isLoggedIn.value===true" class="btn btn-dark" (click)="logout()">Logout</button>
+            <button *ngIf="service.isLoggedIn.value===true" class="btn btn-dark mt-1" (click)="logout()">Logout</button>
           </div>
         </div>
       </div>
-
     </nav>

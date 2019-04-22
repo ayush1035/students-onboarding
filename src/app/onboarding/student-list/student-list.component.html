@@ -21,19 +21,26 @@
   </div>
  
   <div class="row gridRow">
-    <div class="col-md-4 gridCol" *ngFor="let student of onboardingService.students.value | filter:searchText | selectfilter:selectedFilter">
+    <h2 class=" noRecords" *ngIf = '(onboardingService.students.value | filter:searchText | selectfilter:selectedFilter).length === 0'>
+      No records found
+
+    </h2>
+    <div class="col-md-4 gridCol"  *ngFor="let student of onboardingService.students.value | filter:searchText | selectfilter:selectedFilter">
       <div class="card" style="width: 18rem;">
-          <div class="card-header list-header pb-0">
+          <div class="card-header categoryDomesticHeader list-header pb-0" *ngIf="student.category === 'Domestic'">
               <h4 class="card-title">{{student.name}} <span class="age">({{student.dateOfBirth|dateToAge}})</span></h4>
             </div>
+            <div class="card-header categoryInternationalHeader list-header pb-0" *ngIf="student.category === 'International'">
+                <h4 class="card-title">{{student.name}} <span class="age">({{student.dateOfBirth|dateToAge}})</span></h4>
+              </div>
         <!-- <img class="card-img-top imgCard" src="assets/images/student.png" alt="Card image cap"> -->
         <div class="card-body list-body">
           <div class="categoryDomestic" *ngIf="student.category === 'Domestic'">{{student.category}}</div>
           <div class="categoryInternational" *ngIf="student.category === 'International'">{{student.category}}</div>
           <div class="card-text details">
-            <div><span class="label">Father's Name</span> : {{student.fatherName}}</div>
-            <div><span class="label">Mother's Name</span> : {{student.motherName}}</div>
-            <div><span class="label">Last Year Marks</span> : {{student.lastMarks}}%</div>
+            <div><span class="label">Father's Name</span> :&nbsp; {{student.fatherName}}</div>
+            <div><span class="label">Mother's Name</span> :&nbsp; {{student.motherName}}</div>
+            <div><span class="label">Last Year Marks</span> :&nbsp; {{student.lastMarks}}%</div>
 
           </div>
           <button class="btn btn-outline-primary handlerButton" (click)="editHandler(student.id)"><i class="fa fa-edit"></i> Edit</button>

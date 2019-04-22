@@ -15,7 +15,7 @@ export class LoginService {
    * function to verify if the username or password is correct
    */
   verifyUser (user:User):boolean {
-    if(user.username === constants.USERNAME && user.password === constants.PASSWORD) //if username and password matches
+    if(user.username  && user.password ) //if username and password matches
     {
       localStorage.setItem('username',user.username); // setting the username in the localStorage
       return true;

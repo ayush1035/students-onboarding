@@ -25,6 +25,13 @@
     color: indianred;
     font-family: cursive;
 }
+
+.categoryDomesticHeader{
+    background-color: steelblue !important;
+}
+.categoryInternationalHeader{
+    background-color: #32bb52 !important;
+}
 .age{
     font-size: 14px;
     color: lightgoldenrodyellow;
